@@ -22,9 +22,9 @@ void PrintMas(int *mas, int len){
     printf("\n");
 }
 
-int Check(int value){
+int Check(int value, int mas[]){
     for (int i = 0; i < lenA; i++){
-        if(value == B[i]){
+        if(value == mas[i]){
             return -1;
         }
     }
@@ -43,8 +43,14 @@ int main()
     PrintMas(B, lenB);
     
     for (int i = 0; i < lenA; i++){
-        if(Check(A[i]) == -2){
-            printf("целочисленные массивы А (16) и В (18) не состоят из одинаковых наборов значений");
+        if(Check(A[i], B) == -2){
+            printf("целочисленные массивы А (16) и В (18) не состоят из одинаковых наборов значений, 1");
+            return 0;
+        }
+    }
+    for (int i = 0; i < lenB; i++){
+        if(Check(B[i], A) == -2){
+            printf("целочисленные массивы А (16) и В (18) не состоят из одинаковых наборов значений, 2");
             return 0;
         }
     }
